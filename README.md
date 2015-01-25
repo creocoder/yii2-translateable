@@ -104,7 +104,79 @@ class Post extends \yii\db\ActiveRecord
 
 ## Usage
 
-TBD.
+### Setting translations to the entity
+
+To set translations to the entity
+
+```php
+$post = new Post();
+
+// title attribute translation for default application language
+$post->title = 'Post title';
+
+// body attribute translation for default application language
+$post->body = 'Post body';
+
+// title attribute translation for German
+$post->translate('de-DE')->title = 'Post titel';
+
+// body attribute translation for German
+$post->translate('de-DE')->title = 'Post inhalt';
+
+// title attribute translation for Russian
+$post->translate('ru-RU')->title = 'Заголовок поста';
+
+// body attribute translation for Russian
+$post->translate('ru-RU')->title = 'Заголовок поста';
+
+// save post and its translations
+$post->save();
+```
+
+### Getting translations from the entity
+
+To get translations from the entity
+
+```php
+$posts = Post::find()->with('translations')->all();
+
+foreach ($posts as $post) {
+    // title attribute translation for default application language
+    $title = $post->title;
+
+    // body attribute translation for default application language
+    $body = $post->body;
+
+    // title attribute translation for German
+    $germanTitle = $post->translate('de-DE')->title;
+
+    // body attribute translation for German
+    $germanBody = $post->translate('de-DE')->title;
+
+    // title attribute translation for Russian
+    $russianTitle = $post->translate('ru-RU')->title;
+
+    // body attribute translation for Russian
+    $russianBody = $post->translate('ru-RU')->title;
+}
+```
+
+### Checking for translations in the entity
+
+To check translations in the entity
+
+```php
+$post = Post::findOne(1);
+
+// checking for default application language translation
+$result = $post->hasTranslation();
+
+// checking for German translation
+$result = $post->hasTranslation('de-DE');
+
+// checking for Russian translation
+$result = $post->hasTranslation('ru-RU');
+```
 
 ## Donating
 
