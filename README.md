@@ -1,6 +1,7 @@
 # Translateable Behavior for Yii 2
 
 [![Build Status](https://img.shields.io/travis/creocoder/yii2-translateable/master.svg?style=flat-square)](https://travis-ci.org/creocoder/yii2-translateable)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/creocoder/yii2-translateable/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/creocoder/yii2-translateable/?branch=master)
 
 A modern translateable behavior for the Yii framework.
 
