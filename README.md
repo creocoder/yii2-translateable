@@ -78,6 +78,8 @@ class Post extends \yii\db\ActiveRecord
             'translateable' => [
                 'class' => TranslateableBehavior::className(),
                 'translationAttributes' => ['title', 'body'],
+                // translationRelation => 'translations',
+                // translationLanguageAttribute => 'language',
             ],
         ];
     }
