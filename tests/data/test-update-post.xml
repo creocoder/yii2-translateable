@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+	<post
+		id="1"
+	/>
+	<post
+		id="2"
+	/>
+	<post
+		id="3"
+	/>
+	<post_translation
+		post_id="1"
+		language="de-DE"
+		title="Post titel 1"
+		body="Post inhalt 1"
+	/>
+	<post_translation
+		post_id="1"
+		language="en-US"
+		title="Post title 1"
+		body="Post body 1"
+	/>
+	<post_translation
+		post_id="1"
+		language="ru-RU"
+		title="Заголовок поста 1"
+		body="Тело поста 1"
+	/>
+	<post_translation
+		post_id="2"
+		language="de-DE"
+		title="Aktualisiert post titel 2"
+		body="Aktualisiert post inhalt 2"
+	/>
+	<post_translation
+		post_id="2"
+		language="en-US"
+		title="Updated post title 2"
+		body="Updated post body 2"
+	/>
+	<post_translation
+		post_id="2"
+		language="ru-RU"
+		title="Обновленный заголовок поста 2"
+		body="Обновленное тело поста 2"
+	/>
+	<post_translation
+		post_id="3"
+		language="de-DE"
+		title="Post titel 3"
+		body="Post inhalt 3"
+	/>
+	<post_translation
+		post_id="3"
+		language="en-US"
+		title="Post title 3"
+		body="Post body 3"
+	/>
+	<post_translation
+		post_id="3"
+		language="ru-RU"
+		title="Заголовок поста 3"
+		body="Тело поста 3"
+	/>
+</dataset>
