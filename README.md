@@ -102,6 +102,8 @@ class Post extends \yii\db\ActiveRecord
 }
 ```
 
+Model `PostTranslation` can be generated using Gii.
+
 ## Usage
 
 ### Setting translations to the entity
