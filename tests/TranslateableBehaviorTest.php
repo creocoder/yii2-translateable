@@ -29,6 +29,19 @@ class TranslateableBehaviorTest extends DatabaseTestCase
         $this->assertEquals(require(__DIR__ . '/data/test-find-posts.php'), $data);
     }
 
+    public function testFindPost()
+    {
+        $post = Post::findOne(2);
+        $this->assertEquals('Post title 2', $post->title);
+        $this->assertEquals('Post body 2', $post->body);
+        $this->assertEquals('Post title 2', $post->translate()->title);
+        $this->assertEquals('Post body 2', $post->translate()->body);
+        $this->assertEquals('Post titel 2', $post->translate('de-DE')->title);
+        $this->assertEquals('Post inhalt 2', $post->translate('de-DE')->body);
+        $this->assertEquals('Заголовок поста 2', $post->translate('ru-RU')->title);
+        $this->assertEquals('Тело поста 2', $post->translate('ru-RU')->body);
+    }
+
     public function testCreatePost()
     {
         $post = new Post();
