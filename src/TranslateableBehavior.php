@@ -23,15 +23,15 @@ use yii\db\ActiveRecord;
 class TranslateableBehavior extends Behavior
 {
     /**
-     * @var string
+     * @var string the translations relation name
      */
     public $translationRelation = 'translations';
     /**
-     * @var string
+     * @var string the translations model language attribute name
      */
     public $translationLanguageAttribute = 'language';
     /**
-     * @var string[]
+     * @var string[] the list of attributes to be translated
      */
     public $translationAttributes;
 
@@ -58,6 +58,7 @@ class TranslateableBehavior extends Behavior
     }
 
     /**
+     * Returns the translation model for specified language.
      * @param string|null $language
      * @return ActiveRecord
      */
@@ -67,6 +68,7 @@ class TranslateableBehavior extends Behavior
     }
 
     /**
+     * Returns the translation model for the specified language.
      * @param string|null $language
      * @return ActiveRecord
      */
@@ -97,6 +99,7 @@ class TranslateableBehavior extends Behavior
     }
 
     /**
+     * Returns a value indicating whether the translation model for the specified language exists.
      * @param string|null $language
      * @return boolean
      */
