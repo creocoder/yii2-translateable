@@ -123,13 +123,13 @@ $post->body = 'Post body';
 $post->translate('de-DE')->title = 'Post titel';
 
 // body attribute translation for German
-$post->translate('de-DE')->title = 'Post inhalt';
+$post->translate('de-DE')->body = 'Post inhalt';
 
 // title attribute translation for Russian
 $post->translate('ru-RU')->title = 'Заголовок поста';
 
 // body attribute translation for Russian
-$post->translate('ru-RU')->title = 'Заголовок поста';
+$post->translate('ru-RU')->body = 'Тело поста';
 
 // save post and its translations
 $post->save();
@@ -153,13 +153,13 @@ foreach ($posts as $post) {
     $germanTitle = $post->translate('de-DE')->title;
 
     // body attribute translation for German
-    $germanBody = $post->translate('de-DE')->title;
+    $germanBody = $post->translate('de-DE')->body;
 
     // title attribute translation for Russian
     $russianTitle = $post->translate('ru-RU')->title;
 
     // body attribute translation for Russian
-    $russianBody = $post->translate('ru-RU')->title;
+    $russianBody = $post->translate('ru-RU')->body;
 }
 ```
 
