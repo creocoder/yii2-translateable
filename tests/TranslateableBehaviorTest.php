@@ -7,6 +7,7 @@
 
 namespace tests;
 
+use creocoder\translateable\TranslateableBehavior;
 use tests\models\Post;
 use Yii;
 use yii\db\Connection;
@@ -19,10 +20,10 @@ class TranslateableBehaviorTest extends DatabaseTestCase
     public function testFindPosts()
     {
         $data = [];
-        $models = Post::find()->with('translations')->all();
+        $posts = Post::find()->with('translations')->all();
 
-        foreach ($models as $model) {
-            $data[] = $model->toArray([], ['translations']);
+        foreach ($posts as $post) {
+            $data[] = $post->toArray([], ['translations']);
         }
 
         $this->assertEquals(require(__DIR__ . '/data/test-find-posts.php'), $data);
@@ -82,6 +83,14 @@ class TranslateableBehaviorTest extends DatabaseTestCase
         $this->assertTrue($post->hasTranslation('en-US'));
         $this->assertTrue($post->hasTranslation('de-DE'));
         $this->assertTrue($post->hasTranslation('ru-RU'));
+    }
+
+    /**
+     * @expectedException \yii\base\InvalidConfigException
+     */
+    public function testExceptionIsRaisedWhenTranslationAttributesPropertyIsNotSet()
+    {
+        new TranslateableBehavior();
     }
 
     /**
