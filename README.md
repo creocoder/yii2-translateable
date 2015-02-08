@@ -180,6 +180,38 @@ $result = $post->hasTranslation('de-DE');
 $result = $post->hasTranslation('ru-RU');
 ```
 
+## Advanced usage
+
+### Language specific translation attribute labels
+
+Add the following to `PostTranslation` model
+
+```php
+class PostTranslation extends \yii\db\ActiveRecord
+{
+    public function attributeLabels()
+    {
+        switch ($this->language) {
+            case 'de-DE':
+                return [
+                    'title' => 'Titel',
+                    'body' => 'Inhalt',
+                ];
+            case 'ru-RU':
+                return [
+                    'title' => 'Заголовок',
+                    'body' => 'Тело',
+                ];
+            default:
+                return [
+                    'title' => 'Title',
+                    'body' => 'Body',
+                ];
+        }
+    }
+}
+```
+
 ## Donating
 
 Support this project and [others by creocoder](https://gratipay.com/creocoder/) via [gratipay](https://gratipay.com/creocoder/).
