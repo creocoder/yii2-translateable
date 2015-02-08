@@ -58,7 +58,7 @@ class TranslateableBehavior extends Behavior
     }
 
     /**
-     * Returns the translation model for specified language.
+     * Returns the translation model for the specified language.
      * @param string|null $language
      * @return ActiveRecord
      */
