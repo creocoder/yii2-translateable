@@ -13,7 +13,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-$ php composer.phar require creocoder/yii2-translateable:dev-master
+$ composer require creocoder/yii2-translateable:dev-master
 ```
 
 or add
