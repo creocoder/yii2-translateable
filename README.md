@@ -242,7 +242,7 @@ ActiveForm::end();
 
 ### Language specific translation attribute labels
 
-Add the following to `PostTranslation` model
+Example of model attribute labels
 
 ```php
 class PostTranslation extends \yii\db\ActiveRecord
