@@ -13,13 +13,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-$ composer require creocoder/yii2-translateable:dev-master
+$ composer require creocoder/yii2-translateable
 ```
 
 or add
 
 ```
-"creocoder/yii2-translateable": "dev-master"
+"creocoder/yii2-translateable": "~1.0"
 ```
 
 to the `require` section of your `composer.json` file.
@@ -181,6 +181,64 @@ $result = $post->hasTranslation('ru-RU');
 ```
 
 ## Advanced usage
+
+### Collecting tabular input
+
+Example of controller actions
+
+```php
+class PostController extends Controller
+{
+    public function actionCreate()
+    {
+        $model = new Post();
+
+        foreach (Yii::$app->request->post('PostTranslation', []) as $language => $data) {
+            foreach ($data as $attribute => $translation) {
+                $model->translate($language)->$attribute = $translation;
+            }
+        }
+
+        //...
+    }
+
+    public function actionUpdate($id)
+    {
+        $model = Post::find()->with('translations')->where(['id' => $id])->one();
+
+        if ($model === null) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
+        foreach (Yii::$app->request->post('PostTranslation', []) as $language => $data) {
+            foreach ($data as $attribute => $translation) {
+                $model->translate($language)->$attribute = $translation;
+            }
+        }
+
+        //...
+    }
+}
+```
+
+Example of view form
+
+```php
+<?php
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+$form = ActiveForm::begin();
+
+foreach (['en-US', 'de-DE', 'ru-RU'] as $language) {
+    echo $form->field($model->translate($language), "[$language]title")->textInput();
+    echo $form->field($model->translate($language), "[$language]body")->textarea();
+}
+
+//...
+
+ActiveForm::end();
+```
 
 ### Language specific translation attribute labels
 
