@@ -3,7 +3,8 @@
     "description": "The translateable behavior for the Yii framework",
     "keywords": [
         "yii2",
-        "translateable"
+        "translateable",
+        "translation"
     ],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
